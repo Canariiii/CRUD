@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Users</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item *ngFor="let user of users" class="user-item">
+    <ion-label class="user-details">{{ user.nombre }} - {{ user.email }}</ion-label>
+    <ion-button color="danger" (click)="deleteUser(user.id)" class="action-button">Delete</ion-button>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Name</ion-label>
+      <ion-input type="text" placeholder="Enter updated name" [(ngModel)]="user.updatedName" class="input-field"></ion-input>
+    </ion-item>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Email</ion-label>
+      <ion-input type="email" placeholder="Enter updated email" [(ngModel)]="user.updatedEmail" class="input-field"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="updateUser(user, user.id)" class="action-button">Update User</ion-button>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Name</ion-label>
+    <ion-input type="text" placeholder="Enter name here" [(ngModel)]="name" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Email</ion-label>
+    <ion-input type="email" placeholder="Enter email here" [(ngModel)]="email" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addUser()" class="submit-button">Add User</ion-button>
+</ion-content>

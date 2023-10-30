@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Posts</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item *ngFor="let post of posts" class="post-item">
+    <ion-label class="post-details">{{ post.titulo }} - {{ post.contenido }} - {{ post.usuario.nombre }}</ion-label>
+    <ion-button color="danger" (click)="deletePost(post.id)" class="action-button">Delete</ion-button>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Title</ion-label>
+      <ion-input type="text" placeholder="Enter updated title" [(ngModel)]="post.updatedTitle" class="input-field"></ion-input>
+    </ion-item>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Content</ion-label>
+      <ion-input type="text" placeholder="Enter updated content" [(ngModel)]="post.updatedContent" class="input-field"></ion-input>
+    </ion-item>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New User ID</ion-label>
+      <ion-input type="text" placeholder="Enter updated user ID" [(ngModel)]="post.updatedUserID" class="input-field"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="updatePost(post)" class="action-button">Update Post</ion-button>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Title</ion-label>
+    <ion-input type="text" placeholder="Enter title here" [(ngModel)]="titulo" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Content</ion-label>
+    <ion-input type="text" placeholder="Enter content here" [(ngModel)]="contenido" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">User ID</ion-label>
+    <ion-input type="text" placeholder="Enter user ID here" [(ngModel)]="id_usuario" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addPost()" class="submit-button">Update Post</ion-button>
+</ion-content>

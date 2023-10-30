@@ -1,0 +1,42 @@
+<ion-header [translucent]="true">
+  <ion-toolbar color="primary">
+    <ion-title class="ion-text-center">Comments</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-item *ngFor="let comentario of comentarios" class="comentario-item">
+    <ion-label class="comentario-details">{{ comentario.comentario }} - {{ comentario.usuario.nombre }} - {{ comentario.post.titulo }}</ion-label>
+    <ion-button color="danger" (click)="deleteComentario(comentario.id)" class="action-button">Delete</ion-button>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Comment</ion-label>
+      <ion-input type="text" placeholder="Enter updated comment" [(ngModel)]="comentario.updatedComment" class="input-field"></ion-input>
+    </ion-item>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New User ID</ion-label>
+      <ion-input type="text" placeholder="Enter updated user ID" [(ngModel)]="comentario.updatedUserID" class="input-field"></ion-input>
+    </ion-item>
+    <ion-item class="update-item">
+      <ion-label position="stacked">New Post ID</ion-label>
+      <ion-input type="text" placeholder="Enter updated post ID" [(ngModel)]="comentario.updatedPostID" class="input-field"></ion-input>
+    </ion-item>
+    <ion-button expand="block" (click)="updateComentario(comentario)" class="action-button">Update Comment</ion-button>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Comment</ion-label>
+    <ion-input type="text" placeholder="Enter comment here" [(ngModel)]="comentario" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">User ID</ion-label>
+    <ion-input type="text" placeholder="Enter user ID here" [(ngModel)]="id_usuario" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-item class="form-item">
+    <ion-label position="stacked">Post ID</ion-label>
+    <ion-input type="text" placeholder="Enter post ID here" [(ngModel)]="id_post" class="input-field"></ion-input>
+  </ion-item>
+
+  <ion-button expand="block" (click)="addComentario()" class="submit-button">Add Comment</ion-button>
+</ion-content>
